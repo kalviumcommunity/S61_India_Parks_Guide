@@ -10,5 +10,3 @@ This project aims to create a comprehensive and user-friendly database of nation
 ## Technologies:
 - Frontend: HTML, CSS, JavaScript (or any frontend framework/libraries)
 - Backend: Node.js, Express.js (or any backend framework)
-- Database: MongoDB (or any other database management system)
-- Maps: Google Maps API (or any other mapping service)
