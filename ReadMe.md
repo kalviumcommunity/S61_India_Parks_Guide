@@ -1,16 +1,14 @@
-# ASAP-Project
+# List of National Parks in India
 
+## Project Description:
+This project aims to create a comprehensive and user-friendly database of national parks in India. It will provide detailed information about each national park, including its name, location, formation date, notable features, flora and fauna, rivers, and lakes inside the national park.
 
-# Topic : List of National Parks
+## Features:
+- Search, browse, and filter national parks by state.
+- View detailed information about each national park, including maps, photo galleries, climate, vegetation, and cultural heritage.
 
-## Idea Description:
-
-- This project aims to create a comprehensive and user-friendly database of national parks in india.
-
-- The data base includes the detailed information about each national parks, such as its name,location,formed,notable features,flora and fauna, Rivers and lakes inside the national park.
-
-- Users will able to search, browse, and filter the national parks while typing the name of the state.
-
-- The project will feature the maps and the photo gallery, climate, vegetation, cultural heritage.
-
-This is the idea description of the project the *List of National Parks in India*.
+## Technologies:
+- Frontend: HTML, CSS, JavaScript (or any frontend framework/libraries)
+- Backend: Node.js, Express.js (or any backend framework)
+- Database: MongoDB (or any other database management system)
+- Maps: Google Maps API (or any other mapping service)
