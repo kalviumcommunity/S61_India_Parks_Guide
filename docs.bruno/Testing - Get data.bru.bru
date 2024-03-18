@@ -4,8 +4,21 @@ meta {
   seq: 1
 }
 
-get {
-  url: https://s61-india-parks-guide.onrender.com/ping
-  body: none
+put {
+  url: http://localhost:3001/api/update/65f7bc814f605fe8b952e74c
+  body: json
   auth: none
+}
+
+body:json {
+  {
+      "state": "Andaman and Nicobar Islands",
+      "name": "Campbell Bay National Park",
+      "location": "Great Nicobar district, Andaman and Nicobar Islands",
+      "formed": 1992,
+      "notableFeatures": "Pristine beaches, mangroves, tropical rainforest",
+      "fauna": ["Megapode", "Nicobar Pigeon", "Andaman Teal", "saltwater crocodile"],
+      "riversAndLakes": []
+  }
+  
 }
