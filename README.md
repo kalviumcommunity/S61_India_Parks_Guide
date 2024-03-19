@@ -1,8 +1,20 @@
-# React + Vite
+# List of National Parks in India
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description:
+This project aims to create a comprehensive and user-friendly database of national parks in India. It will provide detailed information about each national park, including its name, location, formation date, notable features, flora and fauna, rivers, and lakes inside the national park.
 
-Currently, two official plugins are available:
+## Features:
+- Search, browse, and filter national parks by state.
+- View detailed information about each national park, including maps, photo galleries, climate, vegetation, and cultural heritage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies:
+- Frontend: HTML, CSS, JavaScript (or any frontend framework/libraries)
+- Backend: Node.js, Express.js (or any backend framework)
+
+## Render Deployed link: 
+
+- <https://s61-india-parks-guide.onrender.com/ping>
+
+## Netlify Deployment link:
+
+- <https://65f94ccb8e91118b00d8f85b--sweet-zabaione-894f13.netlify.app/>
