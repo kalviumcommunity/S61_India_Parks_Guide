@@ -4,8 +4,8 @@ meta {
   seq: 1
 }
 
-put {
-  url: http://localhost:3001/api/update/65f7bc814f605fe8b952e74c
+post {
+  url: http://localhost:3001/api/create
   body: json
 
 get {
@@ -14,4 +14,29 @@ get {
   auth: none
 }
 
-
+body:json {
+  
+  
+  [
+    {
+      "state": "Andaman and Nicobar Islands",
+      "name": "Campbell Bay National Park",
+      "location": "Great Nicobar district, Andaman and Nicobar Islands",
+      "formed": 1992,
+      "notableFeatures": "Pristine beaches, mangroves, tropical rainforest",
+      "fauna": ["Megapode", "Nicobar Pigeon", "Andaman Teal", "saltwater crocodile"],
+      "riversAndLakes": []
+  },
+    {
+          "state": "Andaman and Nicobar Islands",
+          "name": "Mahatma Gandhi Marine National Park",
+          "location": "Wandoor, Andaman and Nicobar Islands",
+          "formed": 1983,
+          "notableFeatures": "Marine biodiversity, coral reefs, mangroves",
+          "flora": ["Mangroves", "Coral Reefs", "Seagrasses"],
+          "fauna": ["Dugong", "Saltwater Crocodile", "Sea Turtles", "Marine Fishes"],
+          "riversAndLakes": "Bay of Bengal"
+      }
+    ]
+  
+}
