@@ -14,3 +14,7 @@ This project aims to create a comprehensive and user-friendly database of nation
 ## Render Deployed link: 
 
 - <https://s61-india-parks-guide.onrender.com/ping>
+
+## Netlify Deployment link:
+
+- <https://65f94ccb8e91118b00d8f85b--sweet-zabaione-894f13.netlify.app/>
