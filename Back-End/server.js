@@ -30,12 +30,14 @@ const express = require("express");
 const connectDB = require("./config/db");
 const { parkRoute } = require("./Routes");
 connectDB();
-
+const cors=require('cors');
 const app = express();
 const port = 3001;
 
 app.use(express.json());
-
+app.use(cors({
+  origin:'http://localhost:5173'
+}))
 app.get("/", (req, res) => {
   res.send("pong");
 });

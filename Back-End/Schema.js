@@ -8,6 +8,8 @@ const nationalParkSchema =new Schema({
     formed: { type: Number, required: true },
     notableFeatures: { type: String, required: true },
     fauna: { type: [String], required: true },
+    floraAndFauna: {type:[String], required:true},
+
     riversAndLakes: { type: [String], required: true }
   }
 );
