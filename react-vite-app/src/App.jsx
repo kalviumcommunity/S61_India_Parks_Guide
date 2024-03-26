@@ -9,6 +9,21 @@ import ASAPEntityComponent from './Components/ASAPEntity';
 import './App.css';
 
 const App = () => {
+  const dummyEntity = {
+    state: "Andaman and Nicobar Islands",
+    name: "Campbell Bay National Park",
+    location: "Great Nicobar district, Andaman and Nicobar Islands",
+    formed: 1992,
+    notableFeatures: "Pristine beaches, mangroves, tropical rainforest",
+    fauna: [
+      "Megapode",
+      "Nicobar Pigeon",
+      "Andaman Teal",
+      "saltwater crocodile",
+    ],
+    riversAndLakes: [],
+    __v: 0,
+  };
   return (
     <Router>
       <div className="app">
@@ -29,7 +44,7 @@ const App = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/asap-entity" element={<ASAPEntityComponent />} />
+            <Route path="/asap-entity" element={<ASAPEntityComponent {...dummyEntity}/>} />
             <Route path="/add-entity" element={<AddEntityForm />} />
             <Route path="/all-entities" element={<RenderEntities />} />
             <Route path="/update/:id" element={<UpdateRender />} />
