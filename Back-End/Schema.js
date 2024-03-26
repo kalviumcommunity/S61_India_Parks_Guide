@@ -15,3 +15,4 @@ const nationalParkSchema =new Schema({
 );
   const parkModel=mongoose.model("Place",nationalParkSchema);
   module.exports = { parkModel };
+  
