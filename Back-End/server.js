@@ -27,7 +27,7 @@
 
 
 const express = require("express");
-const connectDB = require("./config/db");
+const connectDB = require("./config/db"); `1`
 const { parkRoute } = require("./Routes");
 connectDB();
 const cors=require('cors');
@@ -35,9 +35,7 @@ const app = express();
 const port = 3001;
 
 app.use(express.json());
-app.use(cors({
-  origin:'http://localhost:5173'
-}))
+app.use(cors())
 app.get("/", (req, res) => {
   res.send("pong");
 });
