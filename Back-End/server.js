@@ -31,6 +31,7 @@ const connectDB = require("./config/db"); `1`
 const { parkRoute } = require("./Routes");
 connectDB();
 const cors=require('cors');
+const userRoute = require("./UserRoutes");
 const app = express();
 const port = 3001;
 
@@ -40,9 +41,15 @@ app.get("/", (req, res) => {
   res.send("pong");
 });
 
+// app.use(cors({
+//   origin:'http://localhost:5173'
+// }))
+
 
 //routes
 app.use("/api", parkRoute);
+
+app.use("/admin", userRoute)
 
 app.listen(port, () => {
   console.log("Server is running");

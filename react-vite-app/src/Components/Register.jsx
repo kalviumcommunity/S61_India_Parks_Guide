@@ -1,0 +1,57 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function RegisterForm() {
+    const [registerUser, setRegisterUser] = useState({
+        username: "",
+        email: "",
+        password: ""
+    });
+
+    const handleChange = (e, field) => {
+        setRegisterUser({ ...registerUser, [field]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3001/admin/register', {
+                username: registerUser.username,
+                email: registerUser.email,
+                password: registerUser.password
+            });
+            console.log("Response:", response);
+            if (response.status === 201) {
+                console.log('Registration successful');
+            } else {
+                console.error('Registration failed');
+            }
+        } catch (error) {
+            console.error('An error occurred while registering', error);
+        }
+    };
+
+    return (
+        <div>
+            <h2>Register</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>Username*</label>
+                    <input type="text" value={registerUser.username} onChange={(e) => handleChange(e, "username")} />
+                </div>
+                <div>
+                    <label>Email*</label>
+                    <input type="email" value={registerUser.email} onChange={(e) => handleChange(e, "email")} />
+                </div>
+                <div>
+                    <label>Password*</label>
+                    <input type="password" value={registerUser.password} onChange={(e) => handleChange(e, "password")} />
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    );
+}
+
+export default RegisterForm;

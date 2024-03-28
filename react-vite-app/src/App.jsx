@@ -7,6 +7,9 @@ import AddEntityForm from './Components/AddEntityForm';
 import LandingPage from './Components/LandingPage';
 import ASAPEntityComponent from './Components/ASAPEntity';
 import './App.css';
+import LoginForm from './Components/Login';
+import Logout from './Components/Logout';
+import RegisterForm from './Components/Register';
 
 const App = () => {
   const dummyEntity = {
@@ -40,6 +43,16 @@ const App = () => {
           <li>
             <Link to="/all-entities">ALL ENTITIES</Link>
           </li>
+          <li>
+            <Link to='/register'>REGISTER</Link>
+          </li>
+          <li>
+            <Link to="/login">LOGIN</Link>
+          </li>
+          
+          <li>
+            <Link to='/logout'>LOGOUT</Link>
+          </li>
         </ul>
         <div className="container">
           <Routes>
@@ -48,6 +61,9 @@ const App = () => {
             <Route path="/add-entity" element={<AddEntityForm />} />
             <Route path="/all-entities" element={<RenderEntities />} />
             <Route path="/update/:id" element={<UpdateRender />} />
+            <Route path="/register" element={<RegisterForm/>}/>
+            <Route path='/login' element={<LoginForm/>}/>
+            <Route path='/logout' element={<Logout/>}/>
           </Routes>
         </div>
       </div>
