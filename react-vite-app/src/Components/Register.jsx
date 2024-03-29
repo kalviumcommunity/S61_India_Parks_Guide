@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './Register.css'; // Updated CSS file name
 function RegisterForm() {
     const [registerUser, setRegisterUser] = useState({
         username: "",
@@ -33,22 +33,22 @@ function RegisterForm() {
     };
 
     return (
-        <div>
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="register-container">
+            <h2 className="register-heading">Register</h2>
+            <form className="register-form" onSubmit={handleSubmit}>
                 <div>
-                    <label>Username*</label>
-                    <input type="text" value={registerUser.username} onChange={(e) => handleChange(e, "username")} />
+                    <label className="register-label">Username:   </label>
+                    <input className="register-input" type="text" value={registerUser.username} onChange={(e) => handleChange(e, "username")} />
                 </div>
                 <div>
-                    <label>Email*</label>
-                    <input type="email" value={registerUser.email} onChange={(e) => handleChange(e, "email")} />
+                    <label className="register-label">Email: </label>
+                    <input className="register-input" type="email" value={registerUser.email} onChange={(e) => handleChange(e, "email")} />
                 </div>
                 <div>
-                    <label>Password*</label>
-                    <input type="password" value={registerUser.password} onChange={(e) => handleChange(e, "password")} />
+                    <label className="register-label">Password: </label>
+                    <input className="register-input" type="password" value={registerUser.password} onChange={(e) => handleChange(e, "password")} />
                 </div>
-                <button type="submit">Register</button>
+                <button className="register-button" type="submit">Register</button>
             </form>
         </div>
     );

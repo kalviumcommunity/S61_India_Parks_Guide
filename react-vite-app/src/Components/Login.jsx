@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import './Login.css';
 
 function LoginForm() {
     const [loginUser, setLoginUser] = useState({
@@ -39,14 +40,14 @@ function LoginForm() {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Username*</label>
-                <input type="text" value={loginUser.username} onChange={(e) => handleChange(e, "username")} />
-                <label>Password*</label>
-                <input type="password" value={loginUser.password} onChange={(e) => handleChange(e, "password")} />
-                <button type="submit">Login</button>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label className="login-username-label">Username: </label>
+                <input className="login-username-input" type="text" value={loginUser.username} onChange={(e) => handleChange(e, "username")} />
+                <label className='login-password-label'>Password: </label>
+                <input className='login-password-input' type="password" value={loginUser.password} onChange={(e) => handleChange(e, "password")} />
+                <button className='login-button' type="submit">Login</button>
             </form>
         </div>
     );
