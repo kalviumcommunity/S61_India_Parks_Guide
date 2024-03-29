@@ -1,0 +1,53 @@
+.login-container h2{
+    color: rgb(16, 186, 39);
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+}
+.login-container {
+    margin: 20px;
+    margin-top: 60px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #fff; /* Set background color */
+    max-width: 400px; /* Set max width */
+    margin: 0 auto; 
+    margin-top:80px;/* Center horizontally */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-username-label,
+.login-password-label {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.login-username-input,
+.login-password-input {
+    padding: 8px;
+    
+    margin-bottom: 10px;
+    width: 100%; /* Adjust width */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}

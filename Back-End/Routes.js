@@ -1,66 +1,9 @@
-// const { parkModel } = require("./Schema");
-// const { Router, application } = require("express");
-
-// const parkRoute = Router();
-
-// parkRoute.post("/create", async (req, res) => {
-//   try {
-//     const prod = await parkModel.create(req.body);
-//     res.status(200).send({ msg: "Data created successfully", prod });
-//   } catch (error) {
-//     res.status(500).json({ errMsg: "Invalid post request", error });
-//   }
-// });
-
-// parkRoute.get("/read", async (req, res) => {
-//   try {
-//     const data = await parkModel.find();
-//     res.status(200).send({ msg: "Data received", data });
-//   } catch (error) {
-//     res.status(500).json({ errMsg: "Invalid get request", error });
-//   }
-// });
-
-// parkRoute.put("/update/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-
-//     const product = await parkModel.findByIdAndUpdate(id, req.body);
-
-//     if (!product) {
-//       return res.status(404).json({ message: "Park not found" });
-//     }
-
-//     const updatedProduct = await parkModel.findByIdAndUpdate(id);
-//     res.status(200).json(updatedProduct);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-
-// parkRoute.delete("/delete/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-
-//     const product = await parkModel.findByIdAndDelete(id);
-
-//     if (!product) {
-//       return res.status(404).json({ message: "Park not found" });
-//     }
-
-//     res.status(200).json({ message: "Park deleted successfully" });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-
-// module.exports = { parkRoute };
 const express = require('express');
 const Joi = require('joi');
 const { parkModel } = require("./Schema");
 const { Router } = require("express");
 const parkRoute = express.Router();
-
+const {UserModel} = require('./UserSchema');
 // Define Joi schema for validation
 const parkValidationSchema = Joi.object({
     state: Joi.string().required(),
@@ -74,6 +17,45 @@ const parkValidationSchema = Joi.object({
 }).options({ allowUnknown: true });
 
 parkRoute.use(express.json());
+
+// parkRoute.post('/login', async (req, res) => {
+//     // try {
+//     //     const user = await UserModel.findOne({ username, password });
+
+//     //     // if (!user) {
+//     //     //     return res.status(401).json({ error: 'Invalid username or password' });
+//     //     // }
+
+//     //     // // Set username in cookie
+//     //     // res.cookie('username', username, { httpOnly: true });
+//     //     res.status(200).json({ message: 'Login successful', user });
+//     // } catch (err) {
+//     //     console.error('Error logging in:', err);
+//     //     res.status(500).json({ error: 'Internal Server Error' });
+//     // }
+
+
+//     try{
+//         const user = await UserModel.create(req.body)
+//         res.status(200).send({msg: "Login successfully..!!!", user})
+//     }catch(err){
+//         res.status(400).send(err)
+//     }
+// });
+
+
+// Logout endpoint
+// parkRoute.post('/logout', (req, res) => {
+//     try {
+//         // Clear username cookie
+//         res.clearCookie('username');
+//         res.status(200).json({ message: 'Logout successful' });
+//     } catch (err) {
+//         console.error('Error logging out:', err);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
+
 
 parkRoute.post("/create", validatePark, async (req, res) => {
     try {
