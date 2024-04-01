@@ -18,44 +18,6 @@ const parkValidationSchema = Joi.object({
 
 parkRoute.use(express.json());
 
-// parkRoute.post('/login', async (req, res) => {
-//     // try {
-//     //     const user = await UserModel.findOne({ username, password });
-
-//     //     // if (!user) {
-//     //     //     return res.status(401).json({ error: 'Invalid username or password' });
-//     //     // }
-
-//     //     // // Set username in cookie
-//     //     // res.cookie('username', username, { httpOnly: true });
-//     //     res.status(200).json({ message: 'Login successful', user });
-//     // } catch (err) {
-//     //     console.error('Error logging in:', err);
-//     //     res.status(500).json({ error: 'Internal Server Error' });
-//     // }
-
-
-//     try{
-//         const user = await UserModel.create(req.body)
-//         res.status(200).send({msg: "Login successfully..!!!", user})
-//     }catch(err){
-//         res.status(400).send(err)
-//     }
-// });
-
-
-// Logout endpoint
-// parkRoute.post('/logout', (req, res) => {
-//     try {
-//         // Clear username cookie
-//         res.clearCookie('username');
-//         res.status(200).json({ message: 'Logout successful' });
-//     } catch (err) {
-//         console.error('Error logging out:', err);
-//         res.status(500).json({ error: 'Internal Server Error' });
-//     }
-// });
-
 
 parkRoute.post("/create", validatePark, async (req, res) => {
     try {
