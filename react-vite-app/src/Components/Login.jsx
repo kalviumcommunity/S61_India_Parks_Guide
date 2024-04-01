@@ -16,16 +16,17 @@ function LoginForm() {
     };
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/admin/login', {
                 username: loginUser.username,
                 password: loginUser.password
-            });
+            }); 
             console.log("response", response);
             if (response.status === 200) {
                 console.log(response.data);
-                Cookies.set('username', loginUser.username);
+                Cookies.set('token', response.data.token);
                 console.log('Login successful');
             } else {
                 console.error('Login failed');
@@ -37,6 +38,7 @@ function LoginForm() {
                 console.error('An error occurred while logging in', error);
             }
         }
+        // console.log(loginUser)
     };
 
     return (

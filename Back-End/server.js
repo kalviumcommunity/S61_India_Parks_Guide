@@ -1,37 +1,12 @@
-// const express=require('express');
-// const mongoose=require('mongoose');
-// const port=process.env.PORT || 8000;
-// require('dotenv').config();
-// const {parkRoute} =require('./Routes');
-// const app=express();
-// mongoose.connect(process.env.MONGODB_URI,{
-//     useNewUrlParser:true,
-//     useUnifiedTopology:true,
-// })
-// .then(()=>console.log('Connectedto MongoDB'))
-// .catch((err) => {
-//     console.error('Error connecting to MongoDB:', err);
-//     process.exit(1); 
-// });
-
-// app.use(express.json());
-
-
-// app.use('/api',parkRoute);
-// app.listen(port,()=>{
-//     console.log(`Server is running on port ${port}`);
-// });
-
-
-
-
-
 const express = require("express");
 const connectDB = require("./config/db"); `1`
 const { parkRoute } = require("./Routes");
 connectDB();
 const cors=require('cors');
 const userRoute = require("./UserRoutes");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 const app = express();
 const port = 3001;
 
@@ -41,15 +16,21 @@ app.get("/", (req, res) => {
   res.send("pong");
 });
 
-// app.use(cors({
-//   origin:'http://localhost:5173'
-// }))
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true // Allow credentials (cookies)
+}));
 
 
 //routes
 app.use("/api", parkRoute);
 
-app.use("/admin", userRoute)
+app.use("/admin", userRoute);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
 
 app.listen(port, () => {
   console.log("Server is running");
