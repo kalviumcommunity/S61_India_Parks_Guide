@@ -15,7 +15,7 @@ userRoute.post("/register", async (req, res) => {
         bcrypt.hash(req.body.password, 6, async (err, hash) => {
             const newUser = await UserModel.create({...req.body, password: hash})
             res.status(200).send({msg: "Registration successfull..!!!", newUser})
-        })
+        });
         
     }
   } catch (error) {
