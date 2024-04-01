@@ -44,12 +44,13 @@ userRoute.post("/login", async (req, res) => {
 
 // Logout endpoint
 userRoute.post("/logout", async (req, res) => {
-  try {
-    res.clearCookie("token");
-    res.status(200).send("Logged out successfully");
-  } catch (error) {
-    res.status(500).send({ error: "Internal server error" });
-  }
-});
+    try {
+      res.clearCookie("token"); // Clear the "token" cookie
+      res.status(200).send("Logged out successfully");
+    } catch (error) {
+      res.status(500).send({ error: "Internal server error" });
+    }
+  });
+  
 
 module.exports = userRoute;
