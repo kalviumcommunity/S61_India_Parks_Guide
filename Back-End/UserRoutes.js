@@ -45,12 +45,26 @@ userRoute.post("/login", async (req, res) => {
 // Logout endpoint
 userRoute.post("/logout", async (req, res) => {
     try {
-      res.clearCookie("token"); // Clear the "token" cookie
-      res.status(200).send("Logged out successfully");
+        const token = req.cookies.token; // Retrieve token from cookies
+        if (!token) {
+            return res.status(401).send({ error: "Unauthorized" }); // If no token is provided, return unauthorized
+        }
+
+        // Verify the token
+        jwt.verify(token, 'kalvium', (err, decoded) => {
+            if (err) {
+                return res.status(401).send({ error: "Unauthorized" }); // If token is invalid, return unauthorized
+            } else {
+                // If token is valid, clear the token cookie
+                res.clearCookie("token");
+                res.status(200).send("Logged out successfully");
+            }
+        });
     } catch (error) {
-      res.status(500).send({ error: "Internal server error" });
+        res.status(500).send({ error: "Internal server error" });
     }
-  });
+});
+
   
 
 module.exports = userRoute;
