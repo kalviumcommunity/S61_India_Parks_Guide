@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Register.css'; // Updated CSS file name
+import './Register.css';
+
 function RegisterForm() {
     const [registerUser, setRegisterUser] = useState({
         username: "",
@@ -22,19 +23,29 @@ function RegisterForm() {
                 password: registerUser.password
             });
             console.log("Response:", response);
-            if (response.status === 200) {
-                console.log('Registration successful...!!!');
+            // if (response.status === 201) {
+            //     console.log('Registration successful');
+            // } else {
+            //     console.error('Unexpected response status:', response.status);
+            //     console.error('Registration failed');
+            // }
+            if (response.status >= 200 && response.status < 300) {
+                console.log('Registration successful');
+                
             } else {
                 console.error('Registration failed');
             }
+            
         } catch (error) {
             console.error('An error occurred while registering', error);
         }
     };
-
+    
     return (
-        <div className="register-container">
-            <h2 className="register-heading">Register</h2>
+        <>
+         <h2 className='div m-3'>Register</h2>
+        <div className="container">
+           
             <form className="register-form" onSubmit={handleSubmit}>
                 <div>
                     <label className="register-label">Username:   </label>
@@ -48,9 +59,10 @@ function RegisterForm() {
                     <label className="register-label">Password: </label>
                     <input className="register-input" type="password" value={registerUser.password} onChange={(e) => handleChange(e, "password")} />
                 </div>
-                <button className="register-button" type="submit">Register</button>
+                <div className='registerBtn-container'><button className="register-button" type="submit">Register</button></div> 
             </form>
         </div>
+        </>
     );
 }
 
