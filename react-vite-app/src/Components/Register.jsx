@@ -23,7 +23,7 @@ function RegisterForm() {
             });
             console.log("Response:", response);
             if (response.status === 200) {
-                console.log('Registration successful');
+                console.log('Registration successful...!!!');
             } else {
                 console.error('Registration failed');
             }
