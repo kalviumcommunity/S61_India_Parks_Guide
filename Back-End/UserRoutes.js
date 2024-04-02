@@ -9,19 +9,18 @@ userRoute.post("/register", async (req, res) => {
   try {
     const user = await UserModel.findOne({ username: req.body.username });
     if(user){
-        res.status(501).send({msg: "User already exists."})
+        res.status(409).send({msg: "User already exists."})
     }else{
-
         bcrypt.hash(req.body.password, 6, async (err, hash) => {
             const newUser = await UserModel.create({...req.body, password: hash})
-            res.status(200).send({msg: "Registration successfull..!!!", newUser})
+            res.status(200).send({msg: "Registration successful..!!!", newUser})
         });
-        
     }
   } catch (error) {
     res.status(400).send({ error });
   }
 });
+
 
 // Login endpoint
 userRoute.post("/login", async (req, res) => {

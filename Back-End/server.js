@@ -16,10 +16,6 @@ app.get("/", (req, res) => {
   res.send("pong");
 });
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true // Allow credentials (cookies)
-}));
 
 
 //routes

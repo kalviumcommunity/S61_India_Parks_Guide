@@ -16,6 +16,7 @@ function RegisterForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("button clicked")
         try {
             const response = await axios.post('http://localhost:3001/admin/register', {
                 username: registerUser.username,
@@ -23,19 +24,16 @@ function RegisterForm() {
                 password: registerUser.password
             });
             console.log("Response:", response);
-            // if (response.status === 201) {
-            //     console.log('Registration successful');
-            // } else {
-            //     console.error('Unexpected response status:', response.status);
-            //     console.error('Registration failed');
-            // }
-            if (response.status >= 200 && response.status < 300) {
+            if (response.status === 200) {
                 console.log('Registration successful');
-                
+                window.alert('Registration successful');
+            } else if (response.status === 409) {
+                console.error('User already exists');
+                window.alert('User already exists');
             } else {
+                console.error('Unexpected response status:', response.status);
                 console.error('Registration failed');
             }
-            
         } catch (error) {
             console.error('An error occurred while registering', error);
         }
