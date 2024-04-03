@@ -24,7 +24,7 @@ function Logout() {
             }
             
             const response = await axios.post(
-                "http://localhost:3001/admin/logout",
+                "https://s61-india-parks-guide-1.onrender.com/admin/logout",
                 {},
                 { headers: { Authorization: `Bearer ${token}` } } // Send token in the Authorization header
             );
@@ -33,6 +33,7 @@ function Logout() {
             // Remove the token cookie upon successful logout
             Cookies.remove("token");
             console.log("Token removed.");
+            window.alert('Logout successful...!!!');
         } catch (error) {
             console.error("Error:", error);
         }

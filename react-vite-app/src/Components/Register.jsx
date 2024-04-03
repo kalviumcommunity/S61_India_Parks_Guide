@@ -18,7 +18,7 @@ function RegisterForm() {
         e.preventDefault();
         console.log("button clicked")
         try {
-            const response = await axios.post('http://localhost:3001/admin/register', {
+            const response = await axios.post('https://s61-india-parks-guide-1.onrender.com/admin/register', {
                 username: registerUser.username,
                 email: registerUser.email,
                 password: registerUser.password
@@ -26,7 +26,7 @@ function RegisterForm() {
             console.log("Response:", response);
             if (response.status === 200) {
                 console.log('Registration successful');
-                window.alert('Registration successful');
+                window.alert('Registration successful...!!!');
             } else if (response.status === 409) {
                 console.error('User already exists');
                 window.alert('User already exists');

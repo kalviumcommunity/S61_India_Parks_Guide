@@ -24,7 +24,7 @@ const UpdateRender = () => {
     e.preventDefault();
     console.log("Data is updating", formData._id);
     axios
-      .put(`http://localhost:3001/api/update/${formData._id}`, formData)
+      .put(`https://s61-india-parks-guide-1.onrender.com/api/update/${formData._id}`, formData)
       .then((res) => {
         console.log("Entity updated successfully", res.data)
         navigate('/all-entities')

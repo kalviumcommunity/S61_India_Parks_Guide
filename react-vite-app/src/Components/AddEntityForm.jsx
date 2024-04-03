@@ -28,7 +28,7 @@ function AddEntityForm() {
     try {
       console.log('Form Data:', formData);
   
-      const response = await fetch('http://localhost:3001/api/create', {
+      const response = await fetch('https://s61-india-parks-guide-1.onrender.com/api/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

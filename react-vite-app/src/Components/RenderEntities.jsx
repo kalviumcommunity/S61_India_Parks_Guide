@@ -13,7 +13,7 @@ function RenderEntities() {
   useEffect(() => {
     // Fetch entities from the server
     axios
-      .get("http://localhost:3001/api/read")
+      .get("https://s61-india-parks-guide-1.onrender.com/api/read")
       .then((response) => {
         setEntities(response.data.data); // Set the entities in the state
         const selectedCreatedBy = response.data.data.reduce((curr, item) => {
@@ -32,7 +32,7 @@ function RenderEntities() {
   const handleDelete = (id) => {
     // Implement delete logic here
     axios
-      .delete(`http://localhost:3001/api/delete/${id}`)
+      .delete(`https://s61-india-parks-guide-1.onrender.com/api/delete/${id}`)
       .then((response) => {
         // Update entities state after deletion
         setEntities(entities.filter((entity) => entity._id !== id));
