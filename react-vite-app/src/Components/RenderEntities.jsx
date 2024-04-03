@@ -1,14 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import "./RenderEntities.css";
 import { useNavigate } from "react-router-dom";
-// import {useHistory} from 'react-router-dom';
 
 function RenderEntities() {
   const [entities, setEntities] = useState([]);
-  // const history=useHistory()
   const navigate = useNavigate();
   useEffect(() => {
     // Fetch entities from the server
@@ -71,11 +68,8 @@ function RenderEntities() {
                 <p className="entity-rivers-and-lakes">
                   <strong>Rivers And Lakes:</strong> {entity.riversAndLakes}
                 </p>
-                {/* Update and delete buttons */}
                 <div className="entity-buttons">
-                  {/* <Link to={`/update/${entity._id}`} className="update-button"> */}
                   <p onClick={() => handleUpdate(entity)}>Edit</p>
-                  {/* </Link> */}
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(entity._id)}

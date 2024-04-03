@@ -1,4 +1,3 @@
-/* AddEntityForm.css */
 .entity-form {
     max-width: 850px;
     margin: 0 auto;
@@ -35,7 +34,7 @@
   
   .form-btn {
     display: block;
-    margin: 0 auto; /* Center the button horizontally */
+    margin: 0 auto; 
     width: 50%;
     padding: 15px;
     background-color: #007bff;

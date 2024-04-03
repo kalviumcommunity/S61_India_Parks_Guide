@@ -8,13 +8,13 @@
     margin: 20px;
     margin-top: 60px;
     padding: 20px;
-    border: 1px solid #ddd; /* Add border */
-    border-radius: 10px; /* Add border radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-    background-color: #fff; /* Set background color */
-    max-width: 400px; /* Set max width */
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+    max-width: 400px; 
     margin: 0 auto; 
-    margin-top:80px;/* Center horizontally */
+    margin-top:80px;
 }
 
 .login-form {
@@ -34,8 +34,8 @@
     padding: 8px;
     
     margin-bottom: 10px;
-    width: 100%; /* Adjust width */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .login-button {

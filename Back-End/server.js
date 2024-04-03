@@ -15,18 +15,18 @@ app.use(cors())
 app.get("/", (req, res) => {
   res.send("pong");
 });
-// function validatePark(req, res, next) {
-//   const { error } = parkValidationSchema.validate(req.body);
-//   if (error) {
-//       return res.status(400).json({ message: error.details[0].message });
-//   }
-//   next();
-// }
+function validatePark(req, res, next) {
+  const { error } = parkValidationSchema.validate(req.body);
+  if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+  }
+  next();
+}
 
-// app.use((err, req, res, next) => {
-// console.error(err.stack);
-// res.status(500).json({ message: 'Something went wrong!' });
-// });
+app.use((err, req, res, next) => {
+console.error(err.stack);
+res.status(500).json({ message: 'Something went wrong!' });
+});
 
 
 

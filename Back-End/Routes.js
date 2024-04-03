@@ -20,7 +20,6 @@ parkRoute.use(express.json());
 
 
 parkRoute.post("/create", validatePark, async (req, res) => {
-    // console.log("Request Body:", req.body); // Log the request body
     try {
         const prod = await parkModel.create(req.body);
         res.status(200).send({ msg: "Data created successfully", prod });
