@@ -6,18 +6,28 @@ import { useNavigate } from "react-router-dom";
 
 function RenderEntities() {
   const [entities, setEntities] = useState([]);
+  const [filteredData, setFilteredData] = useState("");
+  const [CreatedBy, setCreatedBy] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     // Fetch entities from the server
     axios
       .get("http://localhost:3001/api/read")
       .then((response) => {
         setEntities(response.data.data); // Set the entities in the state
+        const selectedCreatedBy = response.data.data.reduce((curr, item) => {
+          if (!curr.includes(item.created_by)) {
+            curr.push(item.created_by);
+          }
+          return curr;
+        }, []);
+        setCreatedBy(selectedCreatedBy);
       })
       .catch((error) => {
         console.log("Error fetching entities:", error);
       });
-  }, []); // Empty dependency array ensures useEffect runs only once after component mount
+  }, []);
 
   const handleDelete = (id) => {
     // Implement delete logic here
@@ -34,18 +44,38 @@ function RenderEntities() {
   };
 
   const handleUpdate = (item) => {
-    // console.log(item);
     navigate("/update/:id", { state: item });
   };
-  
-  
+
+  const handleFilterChange = (e) => {
+    setFilteredData(e.target.value);
+  };
+
+  const filteredEntities = filteredData
+    ? entities.filter((item) => item.created_by === filteredData)
+    : entities;
 
   return (
     <div>
       <h1 className="heading-3">ALL ENTITIES</h1>
+      <div className="relation">
+        <label htmlFor="creatorFilter">Filter by creator:</label>
+        <select
+          id="creatorFilter"
+          value={filteredData}
+          onChange={handleFilterChange}
+        >
+          <option value="">All</option>
+          {CreatedBy.map((creator, index) => (
+            <option key={index} value={creator}>
+              {creator}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="entities-container">
         <ul>
-          {entities.map((entity) => (
+          {filteredEntities.map((entity) => (
             <li key={entity._id} className="entity-item">
               <div className="entity-info">
                 <h2 className="entity-state">{entity.state}</h2>
@@ -69,14 +99,18 @@ function RenderEntities() {
                   <strong>Rivers And Lakes:</strong> {entity.riversAndLakes}
                 </p>
                 <div className="entity-buttons">
-                  <p onClick={() => handleUpdate(entity)}>Edit</p>
+                  <button className="edit-button" onClick={() => handleUpdate(entity)}>Edit</button>
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(entity._id)}
                   >
                     Delete
                   </button>
-                </div>
+                  
+                
+              
+              <div className="username"><strong>Created By:</strong> {entity.created_by}</div>
+              </div>
               </div>
             </li>
           ))}
@@ -87,5 +121,6 @@ function RenderEntities() {
 }
 
 export default RenderEntities;
+
 
 

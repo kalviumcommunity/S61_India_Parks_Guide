@@ -28,6 +28,7 @@ function LoginForm() {
                 console.log(response.data);
                 Cookies.set('token', response.data.token);
                 console.log('Login successful');
+                window.alert('Login successful');
             } else {
                 console.error('Login failed');
             }

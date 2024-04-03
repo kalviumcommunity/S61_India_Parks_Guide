@@ -51,8 +51,8 @@
   }
   .delete-button{
     color:white;
-    background-color: red;
-    padding: 6px;
+    background-color: rgb(224, 84, 84);
+    padding: px;
     width: 100px;
     border-radius: 5px;
     font-size: 20px;
@@ -75,5 +75,23 @@
   .update-button p{
     margin-left: 30px;
     margin-top:13px;
+  }
+  .relation{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: rgb(229, 45, 167);
+  }
+  .relation option{
+    border:20px solid black;
+  }
+  .edit-button{
+    color:white;
+    background-color: rgb(133, 145, 233);
+    padding: 6px;
+    width: 100px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 5px;
   }
   

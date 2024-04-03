@@ -11,7 +11,8 @@ function AddEntityForm() {
     notableFeatures: '',
     fauna: '',
     floraAndFauna: '',
-    riversAndLakes: ''
+    riversAndLakes: '',
+    created_by: ''
   });
 
   const handleChange = (e) => {
@@ -21,12 +22,10 @@ function AddEntityForm() {
       [name]: value
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let faunaUpdate = formData.fauna
-    console.log(faunaUpdate)
     try {
-      // Log the form data before sending the request
       console.log('Form Data:', formData);
   
       const response = await fetch('http://localhost:3001/api/create', {
@@ -37,9 +36,8 @@ function AddEntityForm() {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      console.log('Entity added successfully: lineno.45', data);
+      console.log('Entity added successfully:', data);
   
-      // Reset the form after successful submission
       setFormData({
         state: '',
         name: '',
@@ -48,10 +46,10 @@ function AddEntityForm() {
         notableFeatures: '',
         fauna: '',
         floraAndFauna: '',
-        riversAndLakes: ''
+        riversAndLakes: '',
+        created_by: ''
       });
   
-      // Redirect or update the UI as needed
     } catch (error) {
       console.error('Error adding entity:', error.message);
     }
@@ -92,6 +90,10 @@ function AddEntityForm() {
         <div className="form-group">
           <label className="form-label">Rivers and Lakes:</label>
           <input type="text" className="form-input" name="riversAndLakes" value={formData.riversAndLakes} onChange={handleChange} required />
+        </div>
+        <div className="form-group">
+          <label className="form-label">Created By:</label>
+          <input type="text" className="form-input" name="created_by" value={formData.created_by} onChange={handleChange} required />
         </div>
         <button type="submit" className="form-btn">Submit</button>
       </form>
