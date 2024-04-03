@@ -1,4 +1,3 @@
-// AddEntityForm.js
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import './AddEntityForm.css';
@@ -37,12 +36,6 @@ function AddEntityForm() {
         },
         body: JSON.stringify(formData),
       });
-  
-      // if (!response.ok) {
-      //   throw new Error('Failed to add entity');
-      // }
-
-  
       const data = await response.json();
       console.log('Entity added successfully: lineno.45', data);
   
@@ -63,42 +56,6 @@ function AddEntityForm() {
       console.error('Error adding entity:', error.message);
     }
   };
-  
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch('http://localhost:3001/api/create', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-  
-  //     if (!response.ok) {
-  //       throw new Error('Failed to add entity');
-  //     }
-  
-  //     const data = await response.json();
-  //     console.log('Entity added successfully:', data);
-  
-  //     // Reset the form after successful submission
-  //     setFormData({
-  //       state: '',
-  //       name: '',
-  //       location: '',
-  //       formed: '',
-  //       notableFeatures: '',
-  //       fauna: '',
-  //       floraAndFauna: '',
-  //       riversAndLakes: ''
-  //     });
-      
-  //     // Redirect or update the UI as needed
-  //   } catch (error) {
-  //     console.error('Error adding entity:', error.message);
-  //   }
-  // };
 
   return (
     <div className="entity-form">

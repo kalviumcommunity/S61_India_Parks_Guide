@@ -41,10 +41,11 @@ function RegisterForm() {
     
     return (
         <>
-         <h2 className='div m-3'>Register</h2>
-        <div className="container">
+         
+        <div className="register-container">
            
             <form className="register-form" onSubmit={handleSubmit}>
+            <h2 className='register-heading'>Register</h2>
                 <div>
                     <label className="register-label">Username:   </label>
                     <input className="register-input" type="text" value={registerUser.username} onChange={(e) => handleChange(e, "username")} />

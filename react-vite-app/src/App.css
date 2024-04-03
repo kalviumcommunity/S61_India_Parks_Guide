@@ -5,7 +5,7 @@
     margin: 0;
     background-color: #333;
     display: flex;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center; 
 }
 
 .navigation li {
@@ -13,13 +13,13 @@
 }
 
 .navigation li a {
-    display: inline-block; /* Use inline-block to apply padding */
+    display: inline-block; 
     color: white;
     text-align: center;
-    padding: 20px 30px; /* Padding inside the links */
+    padding: 20px 30px; 
     text-decoration: none;
     font-size: 25px;
-    margin: 0 10px; /* Margin between links */
+    margin: 0 10px; 
 }
 
 .navigation li a:hover {

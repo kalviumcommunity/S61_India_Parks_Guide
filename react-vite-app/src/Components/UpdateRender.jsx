@@ -7,7 +7,6 @@ import "./UpdateRender.css";
 const UpdateRender = () => {
   const location = useLocation();
   const initialData = location.state;
-  // const { id } = useParams();
   const navigate = useNavigate();
 
   // Define state variable for formData
@@ -20,21 +19,6 @@ const UpdateRender = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   console.log("Form Data:", formData); // Log form data before sending request
-  //   // axios
-  //   //   .put(`http://localhost:3001/api/update/${id}`, formData)
-  //   //   .then((response) => {
-  //   //     console.log("Entity updated successfully:", response.data);
-  //   //     // Redirect or perform any other action after successful update
-  //   //     navigate("/all-entities");
-  //   //   })
-  //   //   .catch((error) => {
-  //   //     console.log("Error updating entity:", error);
-  //   //   });
-  // };
 
   const handleUpdate = (e) => {
     e.preventDefault();
