@@ -58,7 +58,7 @@ function RenderEntities() {
   return (
     <div>
       <h1 className="heading-3">ALL ENTITIES</h1>
-      <div>
+      <div className="relation">
         <label htmlFor="creatorFilter">Filter by creator:</label>
         <select
           id="creatorFilter"
@@ -99,15 +99,18 @@ function RenderEntities() {
                   <strong>Rivers And Lakes:</strong> {entity.riversAndLakes}
                 </p>
                 <div className="entity-buttons">
-                  <p onClick={() => handleUpdate(entity)}>Edit</p>
+                  <button className="edit-button" onClick={() => handleUpdate(entity)}>Edit</button>
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(entity._id)}
                   >
                     Delete
                   </button>
-                  <div>Created By: {entity.created_by}</div>
-                </div>
+                  
+                
+              
+              <div className="username"><strong>Created By:</strong> {entity.created_by}</div>
+              </div>
               </div>
             </li>
           ))}

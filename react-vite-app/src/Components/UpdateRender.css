@@ -45,6 +45,7 @@
   .created input{
     padding:10px;
     border: 2px solid black;
+    font-size: 20px;
   }
   .created label{
     font-size: 25px;
