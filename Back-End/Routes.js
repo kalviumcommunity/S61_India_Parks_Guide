@@ -11,15 +11,16 @@ const parkValidationSchema = Joi.object({
     location: Joi.string().required(),
     formed: Joi.number().integer().min(1800).max(new Date().getFullYear()).required(),
     notableFeatures: Joi.string().required(),
-    fauna: Joi.array().items(Joi.string()).required(),
-    floraAndFauna: Joi.array().items(Joi.string()).required(),
-    riversAndLakes: Joi.array().items(Joi.string()).required()
+    fauna: Joi.string().required(),
+    floraAndFauna: Joi.string().required(),
+    riversAndLakes: Joi.string().required()
 }).options({ allowUnknown: true });
 
 parkRoute.use(express.json());
 
 
 parkRoute.post("/create", validatePark, async (req, res) => {
+    // console.log("Request Body:", req.body); // Log the request body
     try {
         const prod = await parkModel.create(req.body);
         res.status(200).send({ msg: "Data created successfully", prod });

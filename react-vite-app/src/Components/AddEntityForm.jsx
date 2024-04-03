@@ -22,10 +22,14 @@ function AddEntityForm() {
       [name]: value
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let faunaUpdate = formData.fauna
+    console.log(faunaUpdate)
     try {
+      // Log the form data before sending the request
+      console.log('Form Data:', formData);
+  
       const response = await fetch('http://localhost:3001/api/create', {
         method: 'POST',
         headers: {
@@ -34,12 +38,13 @@ function AddEntityForm() {
         body: JSON.stringify(formData),
       });
   
-      if (!response.ok) {
-        throw new Error('Failed to add entity');
-      }
+      // if (!response.ok) {
+      //   throw new Error('Failed to add entity');
+      // }
+
   
       const data = await response.json();
-      console.log('Entity added successfully:', data);
+      console.log('Entity added successfully: lineno.45', data);
   
       // Reset the form after successful submission
       setFormData({
@@ -52,12 +57,48 @@ function AddEntityForm() {
         floraAndFauna: '',
         riversAndLakes: ''
       });
-      
+  
       // Redirect or update the UI as needed
     } catch (error) {
       console.error('Error adding entity:', error.message);
     }
   };
+  
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch('http://localhost:3001/api/create', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+  
+  //     if (!response.ok) {
+  //       throw new Error('Failed to add entity');
+  //     }
+  
+  //     const data = await response.json();
+  //     console.log('Entity added successfully:', data);
+  
+  //     // Reset the form after successful submission
+  //     setFormData({
+  //       state: '',
+  //       name: '',
+  //       location: '',
+  //       formed: '',
+  //       notableFeatures: '',
+  //       fauna: '',
+  //       floraAndFauna: '',
+  //       riversAndLakes: ''
+  //     });
+      
+  //     // Redirect or update the UI as needed
+  //   } catch (error) {
+  //     console.error('Error adding entity:', error.message);
+  //   }
+  // };
 
   return (
     <div className="entity-form">
@@ -85,11 +126,11 @@ function AddEntityForm() {
         </div>
         <div className="form-group">
           <label className="form-label">Fauna:</label>
-          <input type="text" className="form-input" name="fauna" value={formData.fauna} onChange={handleChange} required />
+          <input type="text" className="form-input" name="fauna" value={formData.fauna} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="form-label">Flora and Fauna:</label>
-          <input type="text" className="form-input" name="floraAndFauna" value={formData.floraAndFauna} onChange={handleChange} required />
+          <input type="text" className="form-input" name="floraAndFauna" value={formData.floraAndFauna} onChange={handleChange}  />
         </div>
         <div className="form-group">
           <label className="form-label">Rivers and Lakes:</label>
