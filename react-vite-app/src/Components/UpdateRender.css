@@ -42,6 +42,12 @@
      color: blue;
      background-color: rgb(145, 228, 37);
   }
-  
+  .created input{
+    padding:10px;
+    border: 2px solid black;
+  }
+  .created label{
+    font-size: 25px;
+  }
 
   

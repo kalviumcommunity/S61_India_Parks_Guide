@@ -105,9 +105,20 @@ const UpdateRender = () => {
             onChange={handleChange}
           />
         </div>
+        <div className="created">
+        <label>Created by:</label>
+        <input
+        type="text"
+        name="created_by"
+        value={formData["created_by"]}
+        onChange={handleChange}
+        required
+        />
+        </div>
         <button className="btn-form" onClick={handleUpdate}>
           Update
         </button>
+        
       </form>
     </div>
   );

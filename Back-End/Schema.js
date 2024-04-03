@@ -9,8 +9,8 @@ const nationalParkSchema =new Schema({
     notableFeatures: { type: String, required: true },
     fauna: { type: String, required: true },
     floraAndFauna: {type:String, required:true},
-
-    riversAndLakes: { type: String, required: true }
+    riversAndLakes: { type: String, required: true },
+    created_by:{type:String, required:true}
   }
 );
   const parkModel=mongoose.model("Place",nationalParkSchema);
