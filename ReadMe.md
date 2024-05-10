@@ -1,4 +1,4 @@
-# List of National Parks in India
+# List of National Parks in India:
 
 ## Project Description:
 This project aims to create a comprehensive and user-friendly database of national parks in India. It will provide detailed information about each national park, including its name, location, formation date, notable features, flora and fauna, rivers, and lakes inside the national park.
