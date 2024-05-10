@@ -1,5 +1,5 @@
 const express = require("express");
-const connectDB = require("./config/db"); `1`
+const connectDB = require("./config/db"); 
 const { parkRoute } = require("./Routes");
 connectDB();
 const cors=require('cors');

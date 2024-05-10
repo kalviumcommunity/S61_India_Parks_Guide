@@ -99,18 +99,23 @@ function RenderEntities() {
                   <strong>Rivers And Lakes:</strong> {entity.riversAndLakes}
                 </p>
                 <div className="entity-buttons">
-                  <button className="edit-button" onClick={() => handleUpdate(entity)}>Edit</button>
+                  <button
+                    className="edit-button"
+                    onClick={() => handleUpdate(entity)}
+                  >
+                    Edit
+                  </button>
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(entity._id)}
                   >
                     Delete
                   </button>
-                  
-                
-              
-              <div className="username"><strong>Created By:</strong> {entity.created_by}</div>
-              </div>
+
+                  <div className="username">
+                    <strong>Created By:</strong> {entity.created_by}
+                  </div>
+                </div>
               </div>
             </li>
           ))}
@@ -121,6 +126,3 @@ function RenderEntities() {
 }
 
 export default RenderEntities;
-
-
-
