@@ -13,7 +13,7 @@ This project aims to create a comprehensive and user-friendly database of nation
 
 ## Render Deployed link: 
 
-- <https://s61-india-parks-guide.onrender.com/ping>
+- <https://s61-india-parks-guide.onrender.com/>
 
 ## Vercel Deployment link-Frontened:
 
